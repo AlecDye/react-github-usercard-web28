@@ -1,6 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Avatar, Card, CardHeader, CardContent } from "@material-ui/core";
+import {
+  Avatar,
+  Card,
+  Typography,
+  CardContent,
+  Button
+} from "@material-ui/core";
 
 function FollowerCard(props) {
   const useStyles = makeStyles(theme => ({
@@ -15,17 +21,19 @@ function FollowerCard(props) {
     <>
       {props.followerData.map(item => (
         <Card>
-          <Avatar
-            variant="rounded"
-            src={item.avatar_url}
-            key={item.id}
-            alt="User's avatar"
-            className={classes.large}
-          />
-          <h3>{item.login}</h3>
-          <a href={item.url}>
-            <p>Github Profile</p>
-          </a>
+          <CardContent>
+            <Avatar
+              variant="rounded"
+              src={item.avatar_url}
+              key={item.id}
+              alt="User's avatar"
+              className={classes.large}
+            />
+            <h3>{item.login}</h3>
+            <a href={item.url}>
+              <Button>Profile</Button>
+            </a>
+          </CardContent>
         </Card>
       ))}
     </>

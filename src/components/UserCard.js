@@ -1,6 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Avatar, Card, CardHeader, CardContent, Icon } from "@material-ui/core";
+import {
+  Avatar,
+  Card,
+  Typography,
+  CardContent,
+  Icon,
+  Button
+} from "@material-ui/core";
 import { GroupIcon } from "@material-ui/icons";
 
 function UserCard(props) {
@@ -17,24 +24,20 @@ function UserCard(props) {
   //   console.log(props);
   return (
     <Card>
-      <Avatar
-        variant="rounded"
-        src={props.userData.avatar_url}
-        alt="Alec's avatar"
-        className={classes.large}
-      />
-      <h3>{props.userData.login}</h3>
-      <span>
-        <Icon />
-        <p>{props.userData.followers}</p>
-      </span>
-      <span>
-        <Icon />
-        <p>{props.userData.following}</p>
-      </span>
-      <a href={props.userData.url}>
-        <p>Github Profile</p>
-      </a>
+      <CardContent>
+        <Avatar
+          variant="rounded"
+          src={props.userData.avatar_url}
+          alt="Alec's avatar"
+          className={classes.large}
+        />
+        <Typography variant="subtitle1">{props.userData.login}</Typography>
+        <Typography variant="body1">{props.userData.followers}</Typography>
+        <Typography variant="body1">{props.userData.following}</Typography>
+        <a href={props.userData.url}>
+          <Button>Profile</Button>
+        </a>
+      </CardContent>
     </Card>
   );
 }
