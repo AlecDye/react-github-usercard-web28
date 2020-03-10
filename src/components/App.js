@@ -1,9 +1,12 @@
 import React from "react";
 import axios from "axios";
+// Styles
+import Box from "@material-ui/core/Box";
 
 // Components
 import Header from "./Header";
 import UserCard from "./UserCard";
+import FollowerCard from "./FollowerCard";
 
 class App extends React.Component {
   // Initial State
@@ -44,13 +47,13 @@ class App extends React.Component {
   render() {
     console.log("Render fired");
     return (
-      <div className="app-wrapper">
+      <Box className="app-wrapper">
         <Header />
         <div>
           <UserCard userData={this.state.userData} />
-          <UserCard followerData={this.state.followerData} />
+          <FollowerCard followerData={this.state.followerData} />
         </div>
-      </div>
+      </Box>
     );
   }
 }
