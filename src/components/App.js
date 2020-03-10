@@ -10,6 +10,10 @@ class App extends React.Component {
   constructor() {
     console.log("Constructor fired");
     super();
+    this.state = {
+      userData: [],
+      followerData: []
+    };
   }
   // Api requests
   componentDidMount() {
@@ -17,13 +21,23 @@ class App extends React.Component {
     // User's data
     axios
       .get("https://api.github.com/users/alecdye")
-      .then(res => console.log(res.data))
+      .then(res => {
+        // console.log(res.data)
+        this.setState({
+          userData: res.data
+        });
+      })
       .catch(err => console.log(err));
 
     // Followers from User's data
     axios
       .get("https://api.github.com/users/alecdye/followers")
-      .then(res => console.log(res))
+      .then(res => {
+        // console.log(res.data)
+        this.setState({
+          followerData: res.data
+        });
+      })
       .catch(err => console.log(err));
   }
   // Rendering components and state
@@ -33,7 +47,8 @@ class App extends React.Component {
       <div className="app-wrapper">
         <Header />
         <div>
-          <UserCard />
+          <UserCard userData={this.state.userData} />
+          <UserCard followerData={this.state.followerData} />
         </div>
       </div>
     );
