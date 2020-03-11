@@ -49,8 +49,8 @@ class App extends React.Component {
     return (
       <Container className="app-wrapper">
         <Header />
-        <UserCard userData={this.state.userData} />
-        <div>
+        <div className="card-container">
+          <UserCard userData={this.state.userData} />
           <FollowerCard followerData={this.state.followerData} />
         </div>
       </Container>

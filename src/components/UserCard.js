@@ -5,14 +5,19 @@ import {
   Card,
   Typography,
   CardContent,
-  Icon,
   Button
 } from "@material-ui/core";
-import { GroupIcon } from "@material-ui/icons";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 function UserCard(props) {
   // Styling components
   const useStyles = makeStyles(theme => ({
+    root: {
+      width: 275,
+      minWidth: 275,
+      margin: "0 1% 4% 1%",
+      color: "#454545"
+    },
     large: {
       width: theme.spacing(20),
       height: theme.spacing(20)
@@ -23,7 +28,7 @@ function UserCard(props) {
 
   //   console.log(props);
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardContent>
         <Avatar
           variant="rounded"
@@ -32,10 +37,14 @@ function UserCard(props) {
           className={classes.large}
         />
         <Typography variant="subtitle1">{props.userData.login}</Typography>
-        <Typography variant="body1">{props.userData.followers}</Typography>
-        <Typography variant="body1">{props.userData.following}</Typography>
+        <Typography variant="body1">
+          {props.userData.followers} Followers
+        </Typography>
+        <Typography variant="body1">
+          {props.userData.following} Following
+        </Typography>
         <a href={props.userData.url}>
-          <Button>Profile</Button>
+          <Button startIcon={<GitHubIcon />}>Profile</Button>
         </a>
       </CardContent>
     </Card>

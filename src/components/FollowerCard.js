@@ -7,9 +7,16 @@ import {
   CardContent,
   Button
 } from "@material-ui/core";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 function FollowerCard(props) {
   const useStyles = makeStyles(theme => ({
+    root: {
+      width: 275,
+      minWidth: 275,
+      margin: "0 1% 4% 1%",
+      color: "#454545"
+    },
     large: {
       width: theme.spacing(20),
       height: theme.spacing(20)
@@ -20,7 +27,7 @@ function FollowerCard(props) {
   return (
     <>
       {props.followerData.map(item => (
-        <Card>
+        <Card className={classes.root}>
           <CardContent>
             <Avatar
               variant="rounded"
@@ -29,9 +36,9 @@ function FollowerCard(props) {
               alt="User's avatar"
               className={classes.large}
             />
-            <h3>{item.login}</h3>
+            <Typography variant="subtitle1">{item.login}</Typography>
             <a href={item.url}>
-              <Button>Profile</Button>
+              <Button startIcon={<GitHubIcon />}>Profile</Button>
             </a>
           </CardContent>
         </Card>

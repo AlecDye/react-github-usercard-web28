@@ -1,10 +1,12 @@
 import React from "react";
 
+import { goofyGenerator } from "../misc";
+
 class Header extends React.Component {
   render() {
     return (
       <header>
-        <h1>GitHub Club</h1>
+        <h1>{goofyGenerator()}</h1>
       </header>
     );
   }
